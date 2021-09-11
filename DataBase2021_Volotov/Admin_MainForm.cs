@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace DataBase2021_Volotov
 {
     public partial class Admin_MainForm : Form
     {
+        Admin_UserManager userManager;
         public Admin_MainForm()
         {
             InitializeComponent();
@@ -29,17 +31,28 @@ namespace DataBase2021_Volotov
 
         private void BExit_Click(object sender, EventArgs e)
         {
+            this.Owner.WindowState = this.WindowState;
+            this.Owner.Size = this.Size;
+            this.Owner.Location = this.Location;
             this.Owner.Show();
             Data.SqlConnection.Close();
             Data.SqlConnection = null;
             Data.Login = null;
-            Data.Pass = null;
             this.Hide();
         }
 
         private void BUserManeger_Click(object sender, EventArgs e)
         {
-
+            if (userManager == null)
+            {
+                userManager = new Admin_UserManager();
+                userManager.Owner = this;
+            }
+            userManager.Show();
+            userManager.Size = this.Size;
+            userManager.Location = this.Location;
+            userManager.WindowState = this.WindowState;
+            this.Hide();
         }
     }
 }

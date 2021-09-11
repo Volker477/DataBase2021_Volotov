@@ -31,14 +31,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BExit = new System.Windows.Forms.Button();
             this.LLogin = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.BExit);
             this.panel1.Controls.Add(this.LLogin);
+            this.panel1.Controls.Add(this.BExit);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -60,14 +62,25 @@
             // 
             // LLogin
             // 
-            this.LLogin.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.LLogin.Location = new System.Drawing.Point(0, 0);
+            this.LLogin.Location = new System.Drawing.Point(295, 0);
             this.LLogin.Name = "LLogin";
-            this.LLogin.Size = new System.Drawing.Size(321, 48);
+            this.LLogin.Size = new System.Drawing.Size(725, 48);
             this.LLogin.TabIndex = 0;
             this.LLogin.Text = "label1";
-            this.LLogin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(295, 48);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Текущий пользователь:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // User_MainForm
             // 
@@ -92,5 +105,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BExit;
         private System.Windows.Forms.Label LLogin;
+        private System.Windows.Forms.Label label1;
     }
 }

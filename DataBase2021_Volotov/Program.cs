@@ -23,7 +23,6 @@ namespace DataBase2021_Volotov
     static class Data
     {
         public static String Login { get; set; }
-        public static String Pass { get; set; }
         public static NpgsqlConnection SqlConnection { get; set; }
     }
 }

@@ -43,6 +43,7 @@
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.Size = new System.Drawing.Size(157, 26);
             this.TBLogin.TabIndex = 0;
+            this.TBLogin.Text = "1";
             // 
             // label1
             // 
@@ -83,6 +84,7 @@
             this.TBPass.Name = "TBPass";
             this.TBPass.Size = new System.Drawing.Size(157, 26);
             this.TBPass.TabIndex = 1;
+            this.TBPass.Text = "1";
             // 
             // LoginForm
             // 
@@ -102,6 +104,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DataBase";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LoginForm_FormClosed);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

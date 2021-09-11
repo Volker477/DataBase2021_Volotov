@@ -26,12 +26,11 @@ namespace DataBase2021_Volotov
             try
             {
                 Data.Login = TBLogin.Text;
-                Data.Pass = TBPass.Text;
                 TBLogin.Text = "";
+                Data.SqlConnection = new NpgsqlConnection("Server=localhost;Port=5432;User Id=" + Data.Login + ";Password=" + TBPass.Text + ";Database=postgres;");
                 TBPass.Text = "";
-                Data.SqlConnection = new NpgsqlConnection("Server=localhost;Port=5432;User Id=" + Data.Login + ";Password=" + Data.Pass + ";Database=postgres;");
                 Data.SqlConnection.Open();
-                command = new NpgsqlCommand("SELECT Проверка_роли('" + Data.Login + "');", Data.SqlConnection);
+                command = new NpgsqlCommand("SELECT pg_has_role('" + Data.Login + "',16920,'member');", Data.SqlConnection);
                 bool b = bool.Parse(command.ExecuteScalar().ToString());
                 if (b)
                 {
@@ -40,8 +39,9 @@ namespace DataBase2021_Volotov
                         adminForm = new Admin_MainForm();
                         adminForm.Owner = this;
                     }
-                    adminForm.Size = this.Size;
                     adminForm.Show();
+                    adminForm.Size = this.Size;
+                    adminForm.WindowState = this.WindowState;
                     adminForm.Location = this.Location;
                     this.Hide();
                 }
@@ -52,8 +52,9 @@ namespace DataBase2021_Volotov
                         userForm = new User_MainForm();
                         userForm.Owner = this;
                     }
-                    userForm.Size = this.Size;
                     userForm.Show();
+                    userForm.Size = this.Size;
+                    userForm.WindowState = this.WindowState;
                     userForm.Location = this.Location;
                     this.Hide();
                 }
@@ -69,6 +70,11 @@ namespace DataBase2021_Volotov
             if(Data.SqlConnection!=null)
                 Data.SqlConnection.Close();
             Application.Exit();
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

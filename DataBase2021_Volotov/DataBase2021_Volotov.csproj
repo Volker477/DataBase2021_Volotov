@@ -80,33 +80,51 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Формы\Admin_MainForm.cs">
+    <Compile Include="Admin_AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\Admin_MainForm.Designer.cs">
+    <Compile Include="Admin_AddUser.Designer.cs">
+      <DependentUpon>Admin_AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_MainForm.Designer.cs">
       <DependentUpon>Admin_MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Формы\LoginForm.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\LoginForm.Designer.cs">
+    <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Формы\User_MainForm.cs">
+    <Compile Include="Admin_UserManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Формы\User_MainForm.Designer.cs">
+    <Compile Include="Admin_UserManager.Designer.cs">
+      <DependentUpon>Admin_UserManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_MainForm.Designer.cs">
       <DependentUpon>User_MainForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Формы\Admin_MainForm.resx">
+    <EmbeddedResource Include="Admin_AddUser.resx">
+      <DependentUpon>Admin_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_MainForm.resx">
       <DependentUpon>Admin_MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Формы\LoginForm.resx">
+    <EmbeddedResource Include="Admin_UserManager.resx">
+      <DependentUpon>Admin_UserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Формы\User_MainForm.resx">
+    <EmbeddedResource Include="User_MainForm.resx">
       <DependentUpon>User_MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

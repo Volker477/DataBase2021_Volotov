@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace DataBase2021_Volotov
 {
@@ -24,11 +25,13 @@ namespace DataBase2021_Volotov
 
         private void BExit_Click(object sender, EventArgs e)
         {
+            this.Owner.WindowState = this.WindowState;
+            this.Owner.Size = this.Size;
+            this.Owner.Location = this.Location;
             this.Owner.Show();
             Data.SqlConnection.Close();
             Data.SqlConnection = null;
             Data.Login = null;
-            Data.Pass = null;
             this.Hide();
         }
 
