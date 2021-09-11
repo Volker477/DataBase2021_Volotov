@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace DataBase2021_Volotov
 {
@@ -16,7 +17,13 @@ namespace DataBase2021_Volotov
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new LoginForm());
         }
+    }
+    static class Data
+    {
+        public static String Login { get; set; }
+        public static String Pass { get; set; }
+        public static NpgsqlConnection SqlConnection { get; set; }
     }
 }
