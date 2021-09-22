@@ -59,9 +59,10 @@ namespace DataBase2021_Volotov
                     this.Hide();
                 }
             }
-            catch
+            catch(Exception exc)
             {
-                MessageBox.Show("Ошибка авторизации");
+                byte[] b = Encoding.UTF8.GetBytes(exc.Message);
+                MessageBox.Show( Encoding.UTF8.GetString(Encoding.UTF8.GetBytes(exc.Message)),"Ошибка авторизации");
             }
         }
 

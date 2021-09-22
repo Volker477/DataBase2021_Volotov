@@ -30,14 +30,14 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BExit = new System.Windows.Forms.Button();
-            this.LLogin = new System.Windows.Forms.Label();
-            this.BDeleteUser = new System.Windows.Forms.Button();
-            this.BEditUser = new System.Windows.Forms.Button();
-            this.BAddUser = new System.Windows.Forms.Button();
-            this.GVUserList = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.BUpdate = new System.Windows.Forms.Button();
+            this.LLogin = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BAddUser = new System.Windows.Forms.Button();
+            this.BEditUser = new System.Windows.Forms.Button();
+            this.BDeleteUser = new System.Windows.Forms.Button();
+            this.BExit = new System.Windows.Forms.Button();
+            this.GVUserList = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GVUserList)).BeginInit();
             this.SuspendLayout();
@@ -60,16 +60,16 @@
             this.panel1.Size = new System.Drawing.Size(1264, 50);
             this.panel1.TabIndex = 2;
             // 
-            // BExit
+            // BUpdate
             // 
-            this.BExit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BExit.Location = new System.Drawing.Point(1172, 0);
-            this.BExit.Name = "BExit";
-            this.BExit.Size = new System.Drawing.Size(90, 48);
-            this.BExit.TabIndex = 1;
-            this.BExit.Text = "Назад";
-            this.BExit.UseVisualStyleBackColor = true;
-            this.BExit.Click += new System.EventHandler(this.BExit_Click);
+            this.BUpdate.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BUpdate.Location = new System.Drawing.Point(660, 0);
+            this.BUpdate.Name = "BUpdate";
+            this.BUpdate.Size = new System.Drawing.Size(126, 48);
+            this.BUpdate.TabIndex = 7;
+            this.BUpdate.Text = "Обновить";
+            this.BUpdate.UseVisualStyleBackColor = true;
+            this.BUpdate.Click += new System.EventHandler(this.BUpdate_Click);
             // 
             // LLogin
             // 
@@ -82,16 +82,27 @@
             this.LLogin.Text = "label1";
             this.LLogin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // BDeleteUser
+            // label1
             // 
-            this.BDeleteUser.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BDeleteUser.Location = new System.Drawing.Point(1043, 0);
-            this.BDeleteUser.Name = "BDeleteUser";
-            this.BDeleteUser.Size = new System.Drawing.Size(129, 48);
-            this.BDeleteUser.TabIndex = 2;
-            this.BDeleteUser.Text = "Удалить";
-            this.BDeleteUser.UseVisualStyleBackColor = true;
-            this.BDeleteUser.Click += new System.EventHandler(this.BDeleteUser_Click);
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(295, 48);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Текущий пользователь:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BAddUser
+            // 
+            this.BAddUser.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BAddUser.Location = new System.Drawing.Point(786, 0);
+            this.BAddUser.Name = "BAddUser";
+            this.BAddUser.Size = new System.Drawing.Size(131, 48);
+            this.BAddUser.TabIndex = 4;
+            this.BAddUser.Text = "Добавить";
+            this.BAddUser.UseVisualStyleBackColor = true;
+            this.BAddUser.Click += new System.EventHandler(this.BAddUser_Click);
             // 
             // BEditUser
             // 
@@ -104,16 +115,28 @@
             this.BEditUser.UseVisualStyleBackColor = true;
             this.BEditUser.Click += new System.EventHandler(this.BEditUser_Click);
             // 
-            // BAddUser
+            // BDeleteUser
             // 
-            this.BAddUser.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BAddUser.Location = new System.Drawing.Point(786, 0);
-            this.BAddUser.Name = "BAddUser";
-            this.BAddUser.Size = new System.Drawing.Size(131, 48);
-            this.BAddUser.TabIndex = 4;
-            this.BAddUser.Text = "Добавить";
-            this.BAddUser.UseVisualStyleBackColor = true;
-            this.BAddUser.Click += new System.EventHandler(this.BAddUser_Click);
+            this.BDeleteUser.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BDeleteUser.Location = new System.Drawing.Point(1043, 0);
+            this.BDeleteUser.Name = "BDeleteUser";
+            this.BDeleteUser.Size = new System.Drawing.Size(129, 48);
+            this.BDeleteUser.TabIndex = 2;
+            this.BDeleteUser.Text = "Удалить";
+            this.BDeleteUser.UseVisualStyleBackColor = true;
+            this.BDeleteUser.Click += new System.EventHandler(this.BDeleteUser_Click);
+            // 
+            // BExit
+            // 
+            this.BExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BExit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BExit.Location = new System.Drawing.Point(1172, 0);
+            this.BExit.Name = "BExit";
+            this.BExit.Size = new System.Drawing.Size(90, 48);
+            this.BExit.TabIndex = 1;
+            this.BExit.Text = "Назад";
+            this.BExit.UseVisualStyleBackColor = true;
+            this.BExit.Click += new System.EventHandler(this.BExit_Click);
             // 
             // GVUserList
             // 
@@ -137,32 +160,11 @@
             this.GVUserList.Size = new System.Drawing.Size(1264, 631);
             this.GVUserList.TabIndex = 3;
             // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(295, 48);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Текущий пользователь:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BUpdate
-            // 
-            this.BUpdate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BUpdate.Location = new System.Drawing.Point(660, 0);
-            this.BUpdate.Name = "BUpdate";
-            this.BUpdate.Size = new System.Drawing.Size(126, 48);
-            this.BUpdate.TabIndex = 7;
-            this.BUpdate.Text = "Обновить";
-            this.BUpdate.UseVisualStyleBackColor = true;
-            this.BUpdate.Click += new System.EventHandler(this.BUpdate_Click);
-            // 
             // Admin_UserManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BExit;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.GVUserList);
             this.Controls.Add(this.panel1);

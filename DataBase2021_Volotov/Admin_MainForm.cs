@@ -54,5 +54,44 @@ namespace DataBase2021_Volotov
             userManager.WindowState = this.WindowState;
             this.Hide();
         }
+
+        private void LBViews_DoubleClick(object sender, EventArgs e)
+        {
+            if (LBViews.SelectedIndex != -1)
+            {
+                if (LBViews.SelectedIndex < 14)
+                {
+                    ViewesTables viewesTables;
+                    viewesTables = new ViewesTables("SELECT * FROM \"" + LBViews.Text + "\"", LBViews.Text, true, false);
+                    viewesTables.Owner = this;
+                    viewesTables.Show();
+                    viewesTables.Size = this.Size;
+                    viewesTables.WindowState = this.WindowState;
+                    viewesTables.Location = this.Location;
+                    this.Hide();
+                }
+                else
+                {
+                    FuncDialog dialog = new FuncDialog(LBViews.SelectedIndex);
+                    dialog.Owner = this;
+                    dialog.ShowDialog();
+                }
+            }
+        }
+
+        private void LBTables_DoubleClick(object sender, EventArgs e)
+        {
+            if (LBTables.SelectedIndex != -1)
+            {
+                ViewesTables viewesTables;
+                viewesTables = new ViewesTables("SELECT * FROM \"" + LBTables.Text + "\"", LBTables.Text, true, true);
+                viewesTables.Owner = this;
+                viewesTables.Show();
+                viewesTables.Size = this.Size;
+                viewesTables.WindowState = this.WindowState;
+                viewesTables.Location = this.Location;
+                this.Hide();
+            }
+        }
     }
 }

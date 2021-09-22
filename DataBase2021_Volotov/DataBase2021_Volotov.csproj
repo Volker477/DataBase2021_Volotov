@@ -92,6 +92,30 @@
     <Compile Include="Admin_MainForm.Designer.cs">
       <DependentUpon>Admin_MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FuncDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FuncDialog.Designer.cs">
+      <DependentUpon>FuncDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForm1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForm1.Designer.cs">
+      <DependentUpon>InsertForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForm2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForm2.Designer.cs">
+      <DependentUpon>InsertForm2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForm3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForm3.Designer.cs">
+      <DependentUpon>InsertForm3.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +136,12 @@
     <Compile Include="User_MainForm.Designer.cs">
       <DependentUpon>User_MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewesTables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewesTables.Designer.cs">
+      <DependentUpon>ViewesTables.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin_AddUser.resx">
       <DependentUpon>Admin_AddUser.cs</DependentUpon>
     </EmbeddedResource>
@@ -120,6 +150,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_UserManager.resx">
       <DependentUpon>Admin_UserManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FuncDialog.resx">
+      <DependentUpon>FuncDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForm1.resx">
+      <DependentUpon>InsertForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForm2.resx">
+      <DependentUpon>InsertForm2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForm3.resx">
+      <DependentUpon>InsertForm3.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
@@ -136,6 +178,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewesTables.resx">
+      <DependentUpon>ViewesTables.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

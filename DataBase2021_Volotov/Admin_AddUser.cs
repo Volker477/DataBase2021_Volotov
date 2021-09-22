@@ -28,7 +28,7 @@ namespace DataBase2021_Volotov
 
         private void BAddUser_Click(object sender, EventArgs e)
         {
-            if(TBLogin.Text!=""&&(CBRole.SelectedIndex==0|| CBRole.SelectedIndex == 1))
+            if(TBLogin.Text!=""&&CBRole.SelectedIndex!=-1)
             {
                 NpgsqlCommand command=new NpgsqlCommand();
                 command.Connection = Data.SqlConnection;
