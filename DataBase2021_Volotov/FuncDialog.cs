@@ -27,6 +27,7 @@ namespace DataBase2021_Volotov
                 case 14:
                     P14.BringToFront();
                     table = "\"Поставки магазинов\"";
+                    dateTimePicker1.MinDate = DateTime.Now;
                     dateTimePicker1.MaxDate = DateTime.Now.AddYears(1);
                     break;
                 case 15:

@@ -116,6 +116,24 @@
     <Compile Include="InsertForm3.Designer.cs">
       <DependentUpon>InsertForm3.cs</DependentUpon>
     </Compile>
+    <Compile Include="InsertForm4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForm4.Designer.cs">
+      <DependentUpon>InsertForm4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForm5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForm5.Designer.cs">
+      <DependentUpon>InsertForm5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InsertForm6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InsertForm6.Designer.cs">
+      <DependentUpon>InsertForm6.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +180,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertForm3.resx">
       <DependentUpon>InsertForm3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForm4.resx">
+      <DependentUpon>InsertForm4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForm5.resx">
+      <DependentUpon>InsertForm5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InsertForm6.resx">
+      <DependentUpon>InsertForm6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

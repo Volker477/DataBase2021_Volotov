@@ -85,13 +85,22 @@ namespace DataBase2021_Volotov
                     GVQuery.DataSource = ds1.Tables[0];
                     break;
                 case "Продукция_":
-
+                    InsertForm5 insertForm7 = new InsertForm5();
+                    insertForm7.ShowDialog();
+                    adapter.Fill(ds1);
+                    GVQuery.DataSource = ds1.Tables[0];
                     break;
                 case "Магазин_":
-
+                    InsertForm4 insertForm8 = new InsertForm4();
+                    insertForm8.ShowDialog();
+                    adapter.Fill(ds1);
+                    GVQuery.DataSource = ds1.Tables[0];
                     break;
                 case "Поставка_":
-
+                    InsertForm6 insertForm9 = new InsertForm6();
+                    insertForm9.ShowDialog();
+                    adapter.Fill(ds1);
+                    GVQuery.DataSource = ds1.Tables[0];
                     break;
             }
         }
@@ -140,16 +149,33 @@ namespace DataBase2021_Volotov
                         GVQuery.DataSource = ds1.Tables[0];
                         break;
                     case "Продукция_":
-
+                        InsertForm5 insertForm7 = new InsertForm5(int.Parse(GVQuery.SelectedRows[0].Cells[0].Value.ToString()), int.Parse(GVQuery.SelectedRows[0].Cells[1].Value.ToString()), int.Parse(GVQuery.SelectedRows[0].Cells[2].Value.ToString()), GVQuery.SelectedRows[0].Cells[3].Value.ToString());
+                        insertForm7.ShowDialog();
+                        adapter.Fill(ds1);
+                        GVQuery.DataSource = ds1.Tables[0];
                         break;
                     case "Магазин_":
-
+                        InsertForm4 insertForm8 = new InsertForm4(int.Parse(GVQuery.SelectedRows[0].Cells[0].Value.ToString()), GVQuery.SelectedRows[0].Cells[1].Value.ToString(), int.Parse(GVQuery.SelectedRows[0].Cells[2].Value.ToString()), GVQuery.SelectedRows[0].Cells[3].Value.ToString(), GVQuery.SelectedRows[0].Cells[4].Value.ToString());
+                        insertForm8.ShowDialog();
+                        adapter.Fill(ds1);
+                        GVQuery.DataSource = ds1.Tables[0];
                         break;
                     case "Поставка_":
-
+                        InsertForm6 insertForm9 = new InsertForm6(int.Parse(GVQuery.SelectedRows[0].Cells[0].Value.ToString()), int.Parse(GVQuery.SelectedRows[0].Cells[1].Value.ToString()), int.Parse(GVQuery.SelectedRows[0].Cells[2].Value.ToString()), GVQuery.SelectedRows[0].Cells[3].Value.ToString(), GVQuery.SelectedRows[0].Cells[4].Value.ToString());
+                        insertForm9.ShowDialog();
+                        adapter.Fill(ds1);
+                        GVQuery.DataSource = ds1.Tables[0];
                         break;
                 }
             }
+        }
+
+        private void BDelete_Click(object sender, EventArgs e)
+        {
+            DataSet ds1 = new DataSet();
+            new NpgsqlCommand("DELETE FROM "+table+" WHERE id="+ GVQuery.SelectedRows[0].Cells[0].Value.ToString(), Data.SqlConnection).ExecuteScalar();
+            adapter.Fill(ds1);
+            GVQuery.DataSource = ds1.Tables[0];
         }
 
         private void BExit_Click(object sender, EventArgs e)

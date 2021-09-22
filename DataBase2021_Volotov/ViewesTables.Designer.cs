@@ -108,6 +108,7 @@
             this.BDelete.Text = "Удалить";
             this.BDelete.UseVisualStyleBackColor = true;
             this.BDelete.Visible = false;
+            this.BDelete.Click += new System.EventHandler(this.BDelete_Click);
             // 
             // BExit
             // 
@@ -136,7 +137,6 @@
             // 
             this.GVQuery.AllowUserToAddRows = false;
             this.GVQuery.AllowUserToDeleteRows = false;
-            this.GVQuery.AllowUserToResizeColumns = false;
             this.GVQuery.AllowUserToResizeRows = false;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GVQuery.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
