@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BChart = new System.Windows.Forms.Button();
             this.LTableName = new System.Windows.Forms.Label();
             this.BAdd = new System.Windows.Forms.Button();
             this.BEdit = new System.Windows.Forms.Button();
             this.BDelete = new System.Windows.Forms.Button();
+            this.BExport = new System.Windows.Forms.Button();
             this.BExit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.GVQuery = new System.Windows.Forms.DataGridView();
@@ -49,10 +51,12 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.BChart);
             this.panel1.Controls.Add(this.LTableName);
             this.panel1.Controls.Add(this.BAdd);
             this.panel1.Controls.Add(this.BEdit);
             this.panel1.Controls.Add(this.BDelete);
+            this.panel1.Controls.Add(this.BExport);
             this.panel1.Controls.Add(this.BExit);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -63,13 +67,27 @@
             this.panel1.Size = new System.Drawing.Size(1264, 50);
             this.panel1.TabIndex = 2;
             // 
+            // BChart
+            // 
+            this.BChart.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BChart.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BChart.Location = new System.Drawing.Point(561, 0);
+            this.BChart.Name = "BChart";
+            this.BChart.Size = new System.Drawing.Size(135, 48);
+            this.BChart.TabIndex = 13;
+            this.BChart.Text = "Диаграмма";
+            this.BChart.UseVisualStyleBackColor = true;
+            this.BChart.Visible = false;
+            this.BChart.Click += new System.EventHandler(this.BChart_Click);
+            // 
             // LTableName
             // 
             this.LTableName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LTableName.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LTableName.Location = new System.Drawing.Point(237, 0);
             this.LTableName.Name = "LTableName";
-            this.LTableName.Size = new System.Drawing.Size(553, 48);
+            this.LTableName.Size = new System.Drawing.Size(459, 48);
             this.LTableName.TabIndex = 0;
             this.LTableName.Text = "label1";
             this.LTableName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -77,7 +95,7 @@
             // BAdd
             // 
             this.BAdd.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BAdd.Location = new System.Drawing.Point(790, 0);
+            this.BAdd.Location = new System.Drawing.Point(696, 0);
             this.BAdd.Name = "BAdd";
             this.BAdd.Size = new System.Drawing.Size(131, 48);
             this.BAdd.TabIndex = 10;
@@ -89,7 +107,7 @@
             // BEdit
             // 
             this.BEdit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BEdit.Location = new System.Drawing.Point(921, 0);
+            this.BEdit.Location = new System.Drawing.Point(827, 0);
             this.BEdit.Name = "BEdit";
             this.BEdit.Size = new System.Drawing.Size(126, 48);
             this.BEdit.TabIndex = 9;
@@ -101,7 +119,7 @@
             // BDelete
             // 
             this.BDelete.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BDelete.Location = new System.Drawing.Point(1047, 0);
+            this.BDelete.Location = new System.Drawing.Point(953, 0);
             this.BDelete.Name = "BDelete";
             this.BDelete.Size = new System.Drawing.Size(129, 48);
             this.BDelete.TabIndex = 8;
@@ -109,6 +127,19 @@
             this.BDelete.UseVisualStyleBackColor = true;
             this.BDelete.Visible = false;
             this.BDelete.Click += new System.EventHandler(this.BDelete_Click);
+            // 
+            // BExport
+            // 
+            this.BExport.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.BExport.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.BExport.Location = new System.Drawing.Point(1082, 0);
+            this.BExport.Name = "BExport";
+            this.BExport.Size = new System.Drawing.Size(94, 48);
+            this.BExport.TabIndex = 11;
+            this.BExport.Text = "Экспорт в Excel";
+            this.BExport.UseVisualStyleBackColor = true;
+            this.BExport.Click += new System.EventHandler(this.BExport_Click);
             // 
             // BExit
             // 
@@ -138,8 +169,8 @@
             this.GVQuery.AllowUserToAddRows = false;
             this.GVQuery.AllowUserToDeleteRows = false;
             this.GVQuery.AllowUserToResizeRows = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GVQuery.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.GVQuery.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.GVQuery.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GVQuery.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.GVQuery.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -232,5 +263,7 @@
         private System.Windows.Forms.Button BAdd;
         private System.Windows.Forms.Button BEdit;
         private System.Windows.Forms.Button BDelete;
+        private System.Windows.Forms.Button BExport;
+        private System.Windows.Forms.Button BChart;
     }
 }

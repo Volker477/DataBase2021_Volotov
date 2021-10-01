@@ -70,6 +70,7 @@
             // 
             // BExit
             // 
+            this.BExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.BExit.Location = new System.Drawing.Point(1020, 0);
             this.BExit.Name = "BExit";

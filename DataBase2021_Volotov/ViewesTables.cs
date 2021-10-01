@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ExcelLibrary.Office.Excel;
 using Npgsql;
 
 namespace DataBase2021_Volotov
@@ -17,7 +19,7 @@ namespace DataBase2021_Volotov
         String query, table;
         NpgsqlCommand command;
         NpgsqlDataAdapter adapter;
-        
+        DataSet ds1;
         private void ViewesTables_FormClosed(object sender, FormClosedEventArgs e)
         {
             if(!bexit)
@@ -28,7 +30,7 @@ namespace DataBase2021_Volotov
         {
             if(TBSearch.Text=="")
             {
-                DataSet ds1 = new DataSet();
+                ds1 = new DataSet();
                 adapter.Fill(ds1);
                 GVQuery.DataSource = ds1.Tables[0];
             }
@@ -37,7 +39,7 @@ namespace DataBase2021_Volotov
                 command = new NpgsqlCommand(query+" WHERE "+CBSearch.Text+" LIKE '%"+TBSearch.Text+"%'", Data.SqlConnection);
                 adapter = new NpgsqlDataAdapter();
                 adapter.SelectCommand = command;
-                DataSet ds1 = new DataSet();
+                ds1 = new DataSet();
                 adapter.Fill(ds1);
                 GVQuery.DataSource = ds1.Tables[0];
             }
@@ -45,7 +47,7 @@ namespace DataBase2021_Volotov
 
         private void BAdd_Click(object sender, EventArgs e)
         {
-            DataSet ds1 = new DataSet();
+            ds1 = new DataSet();
             switch (table)
             {
                 case "Вид_овощей":
@@ -109,7 +111,7 @@ namespace DataBase2021_Volotov
         {
             if (GVQuery.SelectedRows.Count > 0)
             {
-                DataSet ds1 = new DataSet();
+                ds1 = new DataSet();
                 switch (table)
                 {
                     case "Вид_овощей":
@@ -172,10 +174,44 @@ namespace DataBase2021_Volotov
 
         private void BDelete_Click(object sender, EventArgs e)
         {
-            DataSet ds1 = new DataSet();
+            ds1 = new DataSet();
             new NpgsqlCommand("DELETE FROM "+table+" WHERE id="+ GVQuery.SelectedRows[0].Cells[0].Value.ToString(), Data.SqlConnection).ExecuteScalar();
             adapter.Fill(ds1);
             GVQuery.DataSource = ds1.Tables[0];
+        }
+
+        private void BExport_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Лист Excel (*.xls)|*.xls";
+            sfd.FileName = table;
+            sfd.Title = "Экспорт в Excel";
+            if (sfd.ShowDialog()==DialogResult.OK)
+            {
+                Workbook workbook = new Workbook();
+                Worksheet sheet = new Worksheet(table);
+                workbook.Worksheets.Add(sheet);
+                for (int i1 = 0; i1 < 100; i1++)
+                    sheet.Cells[i1, 0] = new Cell("");
+                int i = 0;
+                foreach(DataRow row in ds1.Tables[0].Rows)
+                {
+                    int j = 0;
+                    foreach (object cell in row.ItemArray)
+                    {
+                        sheet.Cells[i, j] = new Cell(cell.ToString());
+                        j++;
+                    }
+                    i++;
+                }
+                workbook.Save(sfd.FileName);
+            }
+        }
+
+        private void BChart_Click(object sender, EventArgs e)
+        {            
+            ChartForm chartForm=new ChartForm(ds1);
+            chartForm.ShowDialog();
         }
 
         private void BExit_Click(object sender, EventArgs e)
@@ -201,7 +237,15 @@ namespace DataBase2021_Volotov
             bexit = false;
             LTableName.Text = table;
             TBSearch.Text = "";
-            if(admin&&edited)
+            if (table == "Число сортов" || table == "Число видов товаров у предприятий" || table == "Объем  поставок и средняя цена ово" || table == "Поставлявшие ранее большой объем" || table == "Постоянные заказчики")
+            {
+                BChart.Visible = true;
+            }
+            else
+            {
+                BChart.Visible = false;
+            }
+            if (admin&&edited)
             {
                 BAdd.Visible = true;
                 BEdit.Visible = true;
@@ -213,10 +257,10 @@ namespace DataBase2021_Volotov
                 BEdit.Visible = false;
                 BDelete.Visible = false;
             }
+            ds1 = new DataSet();
             command = new NpgsqlCommand(query, Data.SqlConnection);
             adapter = new NpgsqlDataAdapter();
             adapter.SelectCommand = command;
-            DataSet ds1 = new DataSet();
             adapter.Fill(ds1);
             GVQuery.DataSource = ds1.Tables[0];
             foreach (var column in ds1.Tables[0].Columns)
