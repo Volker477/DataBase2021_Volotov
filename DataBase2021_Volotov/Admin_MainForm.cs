@@ -93,5 +93,10 @@ namespace DataBase2021_Volotov
                 this.Hide();
             }
         }
+
+        private void Admin_MainForm_VisibleChanged(object sender, EventArgs e)
+        {
+            LLogin.Text = Data.Login;
+        }
     }
 }

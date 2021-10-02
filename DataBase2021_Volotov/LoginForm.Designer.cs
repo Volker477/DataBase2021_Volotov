@@ -43,7 +43,6 @@
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.Size = new System.Drawing.Size(157, 26);
             this.TBLogin.TabIndex = 0;
-            this.TBLogin.Text = "1";
             // 
             // label1
             // 
@@ -82,9 +81,9 @@
             this.TBPass.Location = new System.Drawing.Point(557, 327);
             this.TBPass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TBPass.Name = "TBPass";
+            this.TBPass.PasswordChar = '*';
             this.TBPass.Size = new System.Drawing.Size(157, 26);
             this.TBPass.TabIndex = 1;
-            this.TBPass.Text = "1";
             // 
             // LoginForm
             // 

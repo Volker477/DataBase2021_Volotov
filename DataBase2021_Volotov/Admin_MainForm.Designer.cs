@@ -206,6 +206,7 @@
             this.Text = "Admin_MainForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_MainForm_FormClosed);
             this.Load += new System.EventHandler(this.Admin_MainForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.Admin_MainForm_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

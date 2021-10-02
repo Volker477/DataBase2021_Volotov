@@ -193,6 +193,7 @@
             this.Text = "User_MainForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.User_MainForm_FormClosed);
             this.Load += new System.EventHandler(this.User_MainForm_Load);
+            this.VisibleChanged += new System.EventHandler(this.User_MainForm_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
