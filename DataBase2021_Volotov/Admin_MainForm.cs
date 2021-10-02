@@ -84,7 +84,10 @@ namespace DataBase2021_Volotov
             if (LBTables.SelectedIndex != -1)
             {
                 ViewesTables viewesTables;
-                viewesTables = new ViewesTables("SELECT * FROM \"" + LBTables.Text + "\"", LBTables.Text, true, true);
+                if(LBTables.SelectedIndex != 2)
+                    viewesTables = new ViewesTables("SELECT * FROM \"" + LBTables.Text + "\"", LBTables.Text, true, true);
+                else
+                    viewesTables = new ViewesTables("SELECT * FROM \"" + LBTables.Text + "\"", LBTables.Text, true, false);
                 viewesTables.Owner = this;
                 viewesTables.Show();
                 viewesTables.Size = this.Size;
