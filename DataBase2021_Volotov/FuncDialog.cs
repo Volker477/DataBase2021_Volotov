@@ -27,8 +27,8 @@ namespace DataBase2021_Volotov
                 case 14:
                     P14.BringToFront();
                     table = "\"Поставки магазинов\"";
-                    dateTimePicker1.MinDate = DateTime.Now;
-                    dateTimePicker1.MaxDate = DateTime.Now.AddYears(1);
+                    dateTimePicker1.MinDate = DateTime.Now.AddYears(-5);
+                    dateTimePicker1.MaxDate = DateTime.Now.AddYears(3);
                     break;
                 case 15:
                     P15_17_18.BringToFront();
@@ -59,7 +59,7 @@ namespace DataBase2021_Volotov
             {
                 case 14:
                     table += ("('"+dateTimePicker1.Value.Year+"-"+ dateTimePicker1.Value .Month+"-"+ dateTimePicker1.Value.Day + "')");
-                    viewesTables = new ViewesTables("SELECT " + table , table+"", false, false);
+                    viewesTables = new ViewesTables("SELECT * FROM " + table , table+"", false, false);
                     viewesTables.Owner = this.Owner;
                     viewesTables.Show();
                     viewesTables.Size = this.Owner.Size;

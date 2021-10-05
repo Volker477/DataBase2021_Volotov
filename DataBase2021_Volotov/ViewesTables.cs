@@ -36,12 +36,32 @@ namespace DataBase2021_Volotov
             }
             else if(CBSearch.SelectedIndex!=-1)
             {
-                command = new NpgsqlCommand(query+" WHERE "+CBSearch.Text+" LIKE '%"+TBSearch.Text+"%'", Data.SqlConnection);
-                adapter = new NpgsqlDataAdapter();
-                adapter.SelectCommand = command;
-                ds1 = new DataSet();
-                adapter.Fill(ds1);
-                GVQuery.DataSource = ds1.Tables[0];
+                try
+                {
+                    command = new NpgsqlCommand(query + " WHERE \"" + CBSearch.Text + "\" LIKE '%" + TBSearch.Text + "%'", Data.SqlConnection);
+                    adapter = new NpgsqlDataAdapter();
+                    adapter.SelectCommand = command;
+                    ds1 = new DataSet();
+                    adapter.Fill(ds1);
+                    GVQuery.DataSource = ds1.Tables[0];
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Произошла ошибка поиска. Будет произведена попытка точного поиска.", "Ошибка поиска");
+                    try
+                    {
+                        command = new NpgsqlCommand(query + " WHERE \"" + CBSearch.Text + "\"='" + TBSearch.Text + "'", Data.SqlConnection);
+                        adapter = new NpgsqlDataAdapter();
+                        adapter.SelectCommand = command;
+                        ds1 = new DataSet();
+                        adapter.Fill(ds1);
+                        GVQuery.DataSource = ds1.Tables[0];
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show(exc.Message + "\nПроизошла ошибка поиска. Будет произведена попытка точного поиска.", "Ошибка поиска");
+                }
+                }
             }
         }
 
